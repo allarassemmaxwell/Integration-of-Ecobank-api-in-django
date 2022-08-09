@@ -1,0 +1,105 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}Welcome{% endblock title %} | Payment</title>
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="Nubatar">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'ecommerce/assets/images/logo.jpg' %}">
+
+    {% if env_name == 'production' %}
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    {% else %}
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {% endif %}
+    <!-- IMPORT VUEJS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+
+
+
+
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="{% static 'ecommerce/assets/css/bootstrap.min.css' %}">
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{% static 'ecommerce/assets/css/demo4.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'ecommerce/assets/vendor/fontawesome-free/css/all.min.css' %}">
+
+
+
+    {% block extra_css %} {% endblock %}
+</head>
+
+
+<body>
+    <div class="page-wrapper">
+
+
+
+        {% block content %}{% endblock %}
+
+        
+    </div>
+    <!-- End .page-wrapper -->
+
+    <div class="loading-overlay">
+        <div class="bounce-loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <div class="mobile-menu-overlay"></div>
+    <!-- End .mobil-menu-overlay -->
+
+    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'payment' %}">Payment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <!-- End .mobile-menu-container -->
+
+
+    <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
+
+
+    {% block javascript %}
+
+    {% endblock %}
+
+    {% block extra_javascript %}{% endblock %}
+</body>
+
+
+</html>

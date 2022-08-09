@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{%load static %}
+{% block title %}Payment{% endblock title %}
+
+{% block extra_css %} 
+
+{% endblock %}
+
+
+
+{% block content %}
+		<div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="POST">{% csrf_token %}
+                            <div class="mb-3 mt-3">
+                                {{ form.option }}
+                            </div>
+                            <div class="mb-3 mt-3 pt-3">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light me-1" onclick="this.disabled=true,this.form.submit();">
+                                        Pay Now
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+        </div>
+{% endblock %}
+
+
+{% block extra_javascript %}
+
+{% endblock %}
